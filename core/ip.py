@@ -14,7 +14,7 @@ class Ip:
         else:
             self.subnet_mask_list: list[int] | None = mask
 
-    def set_ip_address(self, ip_address: str) -> str | None:
+    def set_ip_address(self, ip_address: str):
         self.octet_list = list(map(int, ip_address.split('.')))
 
     def set_mask(self, mask: str):
