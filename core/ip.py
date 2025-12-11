@@ -1,4 +1,4 @@
-from utils import BinaryConverter
+from .utils import BinaryConverter
 from functools import reduce
 
 
@@ -63,10 +63,19 @@ class Ip:
         cidr = self.get_cidr_mask()
         match cidr:
             case 8:
-                return "Class A"
+                if self.octet_list[0] < 128:
+                    return "Class A"
+                else:
+                    return "Classless"
             case 16:
-                return "Class B"
+                if 128 <= self.octet_list[0] < 192:
+                    return "Class B"
+                else:
+                    return "Classless"
             case 24:
-                return "Class C"
+                if 192 <= self.octet_list[0] < 224:
+                    return "Class C"
+                else:
+                    return "Classless"
             case _:
                 return "Classless"
