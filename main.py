@@ -20,7 +20,7 @@ def main():
         else:
             print("Invalid subnet mask!!!")
     ip = Ip(ip_address, subnet_mask)
-    with open(f"subnet_info_{ip_address}_313344376.txt", 'a') as f:
+    with open(f"subnet_info_{ip_address}_313344376.txt", 'w') as f:
         f.write(format_input_ip(ip.get_ip_address_str()) +
                 format_subnet_mask(ip.get_subnet_mask_str()) +
                 format_classful_status(ip.get_ip_class()) +
